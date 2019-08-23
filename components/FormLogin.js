@@ -1,9 +1,10 @@
+import { connect } from "react-redux";
 import { Formik, Form } from "formik";
 import { emailValidation, passwordValidation } from "./util/yupValidations";
 import FiledTextRequired from "./util/FiledTextRequired";
 import * as Yup from "yup";
-
-export default class FormLogin extends React.Component {
+import * as userActions from "../redux_components/actions/userActions";
+class FormLogin extends React.Component {
   intialValues = {
     email: "",
     password: ""
@@ -31,10 +32,7 @@ export default class FormLogin extends React.Component {
         />
         <div className="form-group">
           <button type="submit" className="btn btn-primary mr-2">
-            Register
-          </button>
-          <button type="reset" className="btn btn-secondary">
-            Reset
+            Login
           </button>
         </div>
       </Form>
@@ -42,14 +40,22 @@ export default class FormLogin extends React.Component {
   }
   render() {
     return (
-      <Formik
-        initialValues={this.intialValues}
-        validationSchema={this.validationSchema}
-        onSubmit={fields => {
-          return alert("SUCCESS!! :-)\n\n" + JSON.stringify(fields, null, 4));
-        }}
-        render={this.handlerRender}
-      />
+      <React.Fragment>
+        <Formik
+          initialValues={this.intialValues}
+          validationSchema={this.validationSchema}
+          onSubmit={fields => {
+            this.props.LoginUser(fields.email, fields.password);
+          }}
+          render={this.handlerRender}
+        />
+        {this.props.error ? <div>{this.props.error}</div> : null}
+      </React.Fragment>
     );
   }
 }
+const mapStateToProps = reducers => reducers.userReducers;
+export default connect(
+  mapStateToProps,
+  userActions
+)(FormLogin);

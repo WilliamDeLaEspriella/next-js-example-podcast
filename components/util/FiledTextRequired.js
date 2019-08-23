@@ -2,8 +2,6 @@ import { Field, ErrorMessage } from "formik";
 export default class FiledTextRequired extends React.Component {
   render() {
     const { errors, status, touched } = this.props.actions;
-    console.log(errors[this.props.name]);
-    console.log(touched[this.props.name]);
     return (
       <div className="form-group">
         <label htmlFor={this.props.name}>{this.props.labelName}</label>
