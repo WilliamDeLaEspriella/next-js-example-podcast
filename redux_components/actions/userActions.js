@@ -6,8 +6,7 @@ export const LoginUser = (email, password) => async dispatch => {
   try {
     
     const result = await LoginRequest(email, password);
-    console.log(result.headers.authorization)
-    dispatch({ type: LOGIN, payload: result.data });
+    dispatch({ type: LOGIN, payload: result.data , jwt: result.headers.authorization});
   } catch (error) {
     dispatch({ type: ERROR, error: error.response.data.errors});
   }

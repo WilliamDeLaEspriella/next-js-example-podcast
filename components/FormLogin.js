@@ -5,6 +5,7 @@ import FiledTextRequired from "./util/FiledTextRequired";
 import * as Yup from "yup";
 import * as userActions from "../redux_components/actions/userActions";
 class FormLogin extends React.Component {
+
   intialValues = {
     email: "",
     password: ""

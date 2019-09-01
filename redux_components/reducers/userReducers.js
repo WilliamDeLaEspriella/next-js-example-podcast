@@ -1,6 +1,7 @@
 import { CARGANDO, ERROR, LOGIN } from "../types/userTypes";
 const INITAL_STATE = {
   users: [],
+  token: null,
   user: {},
   cargando: false,
   error: undefined
@@ -12,6 +13,7 @@ export default (state = INITAL_STATE, action) => {
       return {
         ...state,
         user: action.payload,
+        token: action.jwt,
         cargando: false,
         error: undefined
       };
