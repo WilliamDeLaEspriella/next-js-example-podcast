@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint":"standard",
     "dev": "node server.js",
     "build": "next build",
     "start": "NODE_ENV=production node server.js"
@@ -25,5 +26,18 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.3.0",
+    "eslint-plugin-react": "^7.14.3",
+    "standard": "^14.1.0"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
   }
+
 }

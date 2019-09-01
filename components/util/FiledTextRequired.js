@@ -1,26 +1,25 @@
-import { Field, ErrorMessage } from "formik";
-export default class FiledTextRequired extends React.Component {
-  render() {
-    const { errors, status, touched } = this.props.actions;
-    return (
-      <div className="form-group">
-        <label htmlFor={this.props.name}>{this.props.labelName}</label>
-        <Field
-          name={this.props.name}
-          type={this.props.type}
-          className={
-            "form-control" +
-            (errors[this.props.name] && touched[this.props.name]
-              ? " is-invalid"
-              : "")
-          }
-        />
-        <ErrorMessage
-          name={this.props.name}
-          component="div"
-          className="invalid-feedback"
-        />
-      </div>
-    );
-  }
+import { Field, ErrorMessage } from 'formik'
+
+export const FiledTextRequired = ({ actions, labelName, name, type }) => {
+  const { errors, touched } = actions
+  return (
+    <div className='form-group'>
+      <label htmlFor={name}>{labelName}</label>
+      <Field
+        name={name}
+        type={type}
+        className={
+          'form-control' +
+            (errors[name] && touched[name]
+              ? ' is-invalid'
+              : '')
+        }
+      />
+      <ErrorMessage
+        name={name}
+        component='div'
+        className='invalid-feedback'
+      />
+    </div>
+  )
 }
