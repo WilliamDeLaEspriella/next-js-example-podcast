@@ -1,6 +1,6 @@
 import React from 'react'
-import App from 'next/app'
 import { DivLayout, Title } from '../general_styles'
+import App from 'next/app'
 
 class Layout extends React.Component {
   render () {
