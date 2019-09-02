@@ -1,6 +1,6 @@
 
 import FormLogin from '../components/FormLogin'
-import { Store } from '../redux_components/store'
+import { Store } from '../modules/store'
 export default () => (
   <Store>
     <FormLogin />

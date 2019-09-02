@@ -1,9 +1,5 @@
-import Auth from "../components/util/Auth";
-export default class extends React.Component {
+import React from 'react'
 
-
-  render() {
-    return <div>asdada {this.props.as}</div>;
-  }
+export default () => {
+  return <pre>Check the console ^^</pre>
 }
-

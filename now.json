@@ -1,0 +1,10 @@
+{
+    "version": 1,
+    "name": "example-nextj",
+    "builds": [
+        {
+            "use": "@now/next",
+            "src": "package.json"
+        }
+    ]
+}

@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import { Formik } from 'formik'
 import { emailValidation, passwordValidation } from '../util/yupValidations'
 import * as Yup from 'yup'
-import * as userActions from '../../redux_components/actions/userActions'
+import * as userActions from '../../modules/actions/userActions'
 import { FormLoginContent } from '../Forms'
 import { CardWrapper, FormWraper, CardHeader, CardHeading, CardBody, DivError } from './styles'
 
