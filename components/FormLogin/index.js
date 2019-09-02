@@ -4,6 +4,7 @@ import { emailValidation, passwordValidation } from '../util/yupValidations'
 import * as Yup from 'yup'
 import * as userActions from '../../redux_components/actions/userActions'
 import { FormLoginContent } from '../Forms'
+import { CardWrapper, FormWraper, CardHeader, CardHeading, CardBody, DivError } from './styles'
 
 const validationSchema = Yup.object().shape({
   email: emailValidation,
@@ -12,17 +13,24 @@ const validationSchema = Yup.object().shape({
 
 export const FormLogin = ({ LoginUser, error }) => {
   return (
-    <>
-      <Formik
-        initialValues={{ email: '', password: '' }}
-        validationSchema={validationSchema}
-        onSubmit={fields => {
-          LoginUser(fields.email, fields.password)
-        }}
-        render={FormLoginContent}
-      />
-      {error ? <div>{error}</div> : null}
-    </>
+    <FormWraper>
+      <CardWrapper>
+        <CardHeader>
+          <CardHeading>Sign in</CardHeading>
+        </CardHeader>
+        <CardBody>
+          {error ? <DivError>{error}</DivError> : null}
+          <Formik
+            initialValues={{ email: '', password: '' }}
+            validationSchema={validationSchema}
+            onSubmit={fields => {
+              LoginUser(fields.email, fields.password)
+            }}
+            render={FormLoginContent}
+          />
+        </CardBody>
+      </CardWrapper>
+    </FormWraper>
   )
 }
 const mapStateToProps = reducers => reducers.userReducers

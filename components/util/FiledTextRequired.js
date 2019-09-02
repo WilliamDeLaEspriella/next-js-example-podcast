@@ -1,25 +1,18 @@
-import { Field, ErrorMessage } from 'formik'
+import { CardFieldset, CardInput, ErrorInput } from './styles'
 
-export const FiledTextRequired = ({ actions, labelName, name, type }) => {
-  const { errors, touched } = actions
+export const FiledTextRequired = ({ labelName, name, type }) => {
   return (
-    <div className='form-group'>
-      <label htmlFor={name}>{labelName}</label>
-      <Field
+    <CardFieldset className='form-group'>
+      {/* <label htmlFor={name}>{labelName}</label> */}
+      <CardInput
+        placeholder={labelName}
         name={name}
         type={type}
-        className={
-          'form-control' +
-            (errors[name] && touched[name]
-              ? ' is-invalid'
-              : '')
-        }
       />
-      <ErrorMessage
+      <ErrorInput
         name={name}
         component='div'
-        className='invalid-feedback'
       />
-    </div>
+    </CardFieldset>
   )
 }
