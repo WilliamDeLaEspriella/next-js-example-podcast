@@ -1,8 +1,22 @@
 
+import { Component } from 'react'
 import FormLogin from '../components/FormLogin'
-import { Store } from '../modules/store'
-export default () => (
-  <Store>
+import { DivLayout, Title } from '../general_styles'
+class Layout extends Component {
+  render () {
+    const { children } = this.props
+    return (
+      <DivLayout>
+        <Title>My App Example</Title>
+        {children}
+      </DivLayout>)
+  }
+}
+const Login = () => (
+
+  <Layout>
     <FormLogin />
-  </Store>
+  </Layout>
+
 )
+export default Login
