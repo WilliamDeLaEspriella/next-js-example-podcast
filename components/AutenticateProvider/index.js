@@ -5,12 +5,7 @@ import Router from 'next/router'
 const Login = dynamic(() => import('../../pages/login'))
 
 export const AutenticateProvider = ({ children, urlOrigin }) => {
-  const [token, setToken] = React.useState('')
-  React.useEffect(() => {
-    setToken(window.localStorage.getItem('token'))
-    if (token) return // do nothing if the user is logged in
-    Router.replace(urlOrigin, '/login', { shallow: true })
-  }, [token])
+
 
   return (
     <Context.Consumer>
@@ -18,7 +13,12 @@ export const AutenticateProvider = ({ children, urlOrigin }) => {
         if (isAuth) {
           return children
         } else {
-          return <Login />
+          return (
+            <>
+              {Router.replace(urlOrigin, '/login', { shallow: true })}
+              <Login />
+            </>
+          )
         }
       }}
     </Context.Consumer>

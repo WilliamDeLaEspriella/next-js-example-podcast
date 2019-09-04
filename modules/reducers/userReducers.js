@@ -1,11 +1,12 @@
-import { CARGANDO, ERROR, LOGIN } from "../types/userTypes";
+
+import { CARGANDO, ERROR, LOGIN } from '../types/userTypes'
 const INITAL_STATE = {
   users: [],
   token: null,
   user: {},
   cargando: false,
   error: undefined
-};
+}
 
 export default (state = INITAL_STATE, action) => {
   switch (action.type) {
@@ -16,12 +17,12 @@ export default (state = INITAL_STATE, action) => {
         token: action.jwt,
         cargando: false,
         error: undefined
-      };
+      }
     case CARGANDO:
-      return { ...state, cargando: true };
+      return { ...state, cargando: true }
     case ERROR:
-      return { ...state, error: action.error, cargando: false };
+      return { ...state, error: action.error, cargando: false }
     default:
-      return state;
+      return state
   }
-};
+}

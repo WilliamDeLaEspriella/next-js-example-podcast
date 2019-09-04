@@ -1,15 +1,16 @@
 
 import { Component } from 'react'
 import FormLogin from '../components/FormLogin'
-import { DivLayout, Title } from '../general_styles'
+import { GeneralStyles } from '../GeneralStyles'
 class Layout extends Component {
   render () {
     const { children } = this.props
     return (
-      <DivLayout>
-        <Title>My App Example</Title>
+      <div className='div_layout'>
+        <h1 className='h1_layout'>My App Example</h1>
         {children}
-      </DivLayout>)
+        {<GeneralStyles />}
+      </div>)
   }
 }
 const Login = () => (

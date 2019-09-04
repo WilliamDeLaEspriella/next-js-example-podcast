@@ -1,18 +1,21 @@
-import { CardFieldset, CardInput, ErrorInput } from './styles'
-
+import { Styles } from './styles'
+import { Field, ErrorMessage } from 'formik'
 export const FiledTextRequired = ({ labelName, name, type }) => {
   return (
-    <CardFieldset className='form-group'>
+    <fieldset className='form-group'>
       {/* <label htmlFor={name}>{labelName}</label> */}
-      <CardInput
+      <Field
+        className='field_form'
         placeholder={labelName}
         name={name}
         type={type}
       />
-      <ErrorInput
+      <ErrorMessage
+        className='error_message'
         name={name}
         component='div'
       />
-    </CardFieldset>
+      <Styles />
+    </fieldset>
   )
 }

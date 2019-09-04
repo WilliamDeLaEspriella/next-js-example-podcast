@@ -14,15 +14,15 @@ export default class MyApp extends App {
     return { pageProps }
   }
 
-  componentDidMount = () => {
-    const token = window.localStorage.getItem('token')
-    if (token) {
-      Context.activateAuth(token)
-    }
-    // else {
-    //   Router.push('/login')
-    // }
-  };
+  // componentDidMount = () => {
+  //   const token = window.localStorage.getItem('token')
+  //   if (token) {
+  //     Context.activateAuth(token)
+  //   }
+  //   // else {
+  //   //   Router.push('/login')
+  //   // }
+  // };
 
   render () {
     const { Component, pageProps } = this.props

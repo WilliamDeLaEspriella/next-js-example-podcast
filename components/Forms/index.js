@@ -1,6 +1,6 @@
 import { Form } from 'formik'
 import { FiledTextRequired } from '../util/FiledTextRequired'
-import { CardFieldset, CardButton } from './styles'
+import { Styles } from './styles'
 
 // this for only login include email and password input
 export const FormLoginContent = (actions) => {
@@ -19,11 +19,12 @@ export const FormLoginContent = (actions) => {
         labelName='Password'
         type='password'
       />
-      <CardFieldset className='form-group'>
-        <CardButton type='submit' className='btn btn-primary mr-2'>
+      <fieldset className='form-group'>
+        <button type='submit' className='btn btn-primary mr-2'>
             Login
-        </CardButton>
-      </CardFieldset>
+        </button>
+      </fieldset>
+      <Styles />
     </Form>
   )
 }
